@@ -24,7 +24,14 @@ from codealign.authenticity.ai_signals import detect_ai_signals
 # -----------------------------------------------------------------------------
 st.set_page_config(page_title="CodeAlign AI", page_icon="🧩", layout="wide")
 
+# DEBUG: Check keys immediately
+from codealign import client as llm_client
+if not llm_client.groq_client:
+    st.error("🚨 CRITICAL: Groq API Key is MISSING. Please check Streamlit Secrets.")
+    st.info("Debugging: Check the logs in the bottom right 'Manage App' -> 'Logs' to see Env/Secret status.")
+
 # Custom CSS for polished look
+
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');

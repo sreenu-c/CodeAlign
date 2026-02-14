@@ -20,11 +20,29 @@ logger = logging.getLogger(__name__)
 
 class LLMClient:
     def __init__(self):
+        # Try loading from environment variables first
         self.groq_key = os.getenv("GROQ_API_KEY")
         self.gemini_key = os.getenv("GEMINI_API_KEY")
         
+        print(f"DEBUG: Env Keys -> Groq: {bool(self.groq_key)}, Gemini: {bool(self.gemini_key)}")
+
+        # Fallback to Streamlit secrets if available (Deployment)
+        if not self.groq_key or not self.gemini_key:
+            try:
+                import streamlit as st
+                # Accessing secrets can throw FileNotFoundError if no secrets.toml exists locally
+                if "GROQ_API_KEY" in st.secrets:
+                    self.groq_key = st.secrets["GROQ_API_KEY"]
+                if "GEMINI_API_KEY" in st.secrets:
+                    self.gemini_key = st.secrets["GEMINI_API_KEY"]
+                
+                print(f"DEBUG: Secrets Keys -> Groq: {bool(self.groq_key)}, Gemini: {bool(self.gemini_key)}")
+            except Exception as e:
+                print(f"DEBUG: Failed to load Streamlit secrets: {e}")
+
         self.groq_client = None
         if self.groq_key and Groq:
+
             try:
                 self.groq_client = Groq(api_key=self.groq_key)
             except Exception as e:
