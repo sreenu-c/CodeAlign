@@ -2,6 +2,10 @@
 
 **Fair, Fast, and Insightful Code Assessment for the AI Era**
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://codealign-fp6ubwk9lkqykeptrsqngn.streamlit.app/)
+[![Watch the Demo](https://img.shields.io/badge/Demo-Watch%20Video-red)](demo.mp4)
+[![Design Doc](https://img.shields.io/badge/Design%20Doc-View%20PDF-blue)](CodeAlign_Design_Doc.pdf)
+
 CodeAlign is an AI-powered evaluator built for the **UnsaidTalks Hackathon** that goes beyond "Pass/Fail" to assess **correctness, efficiency, readability, and authenticity** – giving students and reviewers the insights they actually need.
 
 **🎯 Built for:** Students, Instructors, Recruiters, and Bootcamps
@@ -279,7 +283,9 @@ Click "Try Sample" in the UI to load any of these instantly.
 
 ## 📹 Demo Video
 
-[📺 Watch the 5-minute demo](#)
+[▶️ **Watch the 5-minute Demo Video**](demo.mp4)
+
+_(Click to download or view if your browser supports it)_
 
 ---
 
