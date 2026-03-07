@@ -115,7 +115,7 @@ class LLMClient:
             
         try:
             result = genai.embed_content(
-                model="models/embedding-001",
+                model="models/text-embedding-004",
                 content=text,
                 task_type="retrieval_document",
                 title="Code Submission"
